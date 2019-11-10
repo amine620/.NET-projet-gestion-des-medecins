@@ -1,0 +1,32 @@
+﻿@model IEnumerable<siteweb.Models.Medcine>
+
+@{
+    ViewBag.Title = "Search";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+    <div class="panel panel-default">
+        <h3 class="panel-heading">les Spécialité Trouver</h3>
+        <div class="row">
+            @foreach (var subitem in Model)
+                {
+
+                <div class="col-md-3 thumbnail" style="margin-left:20px;margin-bottom:20px;height:300px">
+                    <img src="~/uploid/@subitem.photo" style="width:190px;height:190px" />
+                    <h4>   @Html.DisplayFor(modelItem => subitem.nom)  </h4>
+                    <h4>  @Html.DisplayFor(modelItem => subitem.prenom)  </h4>
+                    <h4>   @Html.DisplayFor(modelItem => subitem.Specialite.nom)  </h4>
+                    @*<h4>  @Html.DisplayFor(modelItem => subitem.Adresse)  </h4>
+                    <h4>  @Html.DisplayFor(modelItem => subitem.Ville)  </h4>
+                    <h4>  @Html.DisplayFor(modelItem => subitem.Email)  </h4>
+                    <h4>  @Html.DisplayFor(modelItem => subitem.Telephone)  </h4>*@
+                    @Html.ActionLink("Information", "Details", new { id = subitem.id }, new { @class = "btn btn-primary" })
+
+
+                </div>
+
+            }
+        </div>
+    </div>

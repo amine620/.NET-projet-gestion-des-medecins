@@ -1,0 +1,60 @@
+﻿@model IEnumerable<siteweb.Models.Specialite>
+@{
+    ViewBag.Title = "Home Page";
+}
+<link href="~/Content/Site.css" rel="stylesheet" />
+<div class="jumbotron" >
+    <h2 style="color:black">bienvenue cher  client</h2>
+    <p class="lead" style="color:black">Dans ce site tu peu chercher ou publier votre service de medecine</p>
+    @*<p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>*@
+</div>
+
+
+    @foreach (var item in Model)
+    {
+       
+        <div class="panel panel-info" >
+            <h3 class="panel-heading">  @Html.DisplayFor(modelItem => item.nom)</h3>
+
+            <div class="row panel-body">
+
+                @foreach (var subitem in item.Medcines)
+                {
+
+                    <div class="col-md-3 thumbnail" style="margin-left:20px;margin-bottom:20px;height:300px">
+                        <img src="~/uploid/@subitem.photo"style="width:190px;height:190px" />
+                         <h4>   @Html.DisplayFor(modelItem => subitem.nom)  </h4>
+                        <h4>  @Html.DisplayFor(modelItem => subitem.prenom)  </h4>
+                        <h4>  @Html.DisplayFor(modelItem => subitem.Specialite.nom)  </h4>
+                        @*<h4>  @Html.DisplayFor(modelItem => subitem.Adresse)  </h4>
+                        <h4>  @Html.DisplayFor(modelItem => subitem.Ville)  </h4>
+                        <h4>  @Html.DisplayFor(modelItem => subitem.Email)  </h4>
+                        <h4>  @Html.DisplayFor(modelItem => subitem.Telephone)  </h4>*@
+                        @Html.ActionLink("Information", "Details", new { id = subitem.id }, new { @class = "btn btn-primary" }) 
+
+
+                    </div>
+
+                }
+            </div>
+        </div>
+       
+        
+    }
+
+
+
+
+
+                @*<div class="row">
+                    <div class="col-md-4">
+                        <h2>Getting started</h2>
+                        <p>
+                            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
+                            enables a clean separation of concerns and gives you full control over markup
+                            for enjoyable, agile development.
+                        </p>
+                        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+                    </div>
+
+                </div>*@

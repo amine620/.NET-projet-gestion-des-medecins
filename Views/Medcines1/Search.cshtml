@@ -1,0 +1,94 @@
+﻿@model IEnumerable<siteweb.Models.Medcine>
+<link href="~/Content/medecine.css" rel="stylesheet" />
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h2>La Liste Des Medecines</h2>
+@using (Html.BeginForm("Search", "Medcines1", FormMethod.Post))
+{
+    <input type="text" name="searchname" id="searchname" placeholder="Rechercher Medecines ">
+
+
+}
+
+
+<p>
+    @Html.ActionLink("Publier Nouveau Service", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Sexe)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Specialite)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ville)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nom)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.prenom)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Adresse)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Telephone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.photo)
+        </th>
+
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                <strong>@Html.DisplayFor(modelItem => item.Sexe.nom)</strong>
+            </td>
+            <td>
+                <strong>@Html.DisplayFor(modelItem => item.Specialite.nom)</strong>
+            </td>
+            <td>
+                <strong>@Html.DisplayFor(modelItem => item.Ville.nom)</strong>
+            </td>
+            <td>
+                <strong>@Html.DisplayFor(modelItem => item.nom)</strong>
+            </td>
+            <td>
+                <strong>@Html.DisplayFor(modelItem => item.prenom)</strong>
+            </td>
+            <td>
+                <strong>@Html.DisplayFor(modelItem => item.Email)</strong>
+            </td>
+            <td>
+                <strong>@Html.DisplayFor(modelItem => item.Adresse)</strong>
+            </td>
+            <td>
+                <strong>@Html.DisplayFor(modelItem => item.Telephone)</strong>
+            </td>
+            <td>
+                <img src="~/uploid/@Html.DisplayFor(model => item.photo)" class="thumbnail" style="width:48px;height:48px;" />
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.id }, new { @class = "btn btn-primary ,col-md-2" })
+                @Html.ActionLink("Details", "Details", new { id = item.id }, new { @class = "btn btn-default" })
+                @Html.ActionLink("Delete", "Delete", new { id = item.id }, new { @class = "btn btn-danger" })
+            </td>
+        </tr>
+    }
+
+</table>

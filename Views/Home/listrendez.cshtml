@@ -1,0 +1,76 @@
+﻿@model IEnumerable<siteweb.Models.rendez_vous>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Tout Les Rendez-vous</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+        
+            @Html.DisplayNameFor(model => model.Medcine.nom)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Medcine.prenom)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Medcine.Adresse)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Medcine.Ville)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Message)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Medcine.Telephone)
+        </th>
+
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            
+            <td>
+                @Html.DisplayFor(modelItem => item.Medcine.nom)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Medcine.prenom)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Medcine.Adresse)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Medcine.Ville.nom)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Message)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Medcine.Telephone)
+            </td>
+
+
+            <td>
+                
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn btn-danger" })
+            </td>
+        </tr>
+    }
+
+</table>

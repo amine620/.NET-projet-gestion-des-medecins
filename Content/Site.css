@@ -1,0 +1,71 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+.img-size{
+    font-size:90px;
+}
+
+.txt{
+    text-align:center;
+    background-color:ghostwhite
+}
+.navbar-user{
+    padding:10px;
+    padding-bottom:0px;
+    width:350px;
+
+}
+.lead{
+    color:gray;
+}
+
+
+#searchname {
+    width: 130px;
+    height:40px;
+    margin-top:-7px;
+    
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    background-color: whitesmoke;
+    /*background-image: url('../uploid/download.png');
+    background-repeat: no-repeat;*/
+    transition:width 0.4s ease-in-out;
+}
+.jumbotron {
+    margin-top: 20px;
+    background-image: url('../uploid/videoblocks-green-bright-stripes-abstract-motion-background-design-seamless-loop-video-animation-ultra-hd-4k-3840x2160_sjm4ukzfz_thumbnail-small01.jpg');
+    background-size: cover;
+    color: white;
+}
+body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+    background-image: url('../uploid/Elegant_Background-3.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#searchname:focus {
+    width: 100%;
+}
